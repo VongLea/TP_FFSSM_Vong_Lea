@@ -8,41 +8,31 @@ import java.time.LocalDate;
 public class Licence {
 
     public Personne possesseur;
-
     public String numero;
-
     public LocalDate delivrance;
-
-    public int niveau;
-
     public Club club;
 
-    public Licence(Personne possesseur, String numero, LocalDate delivrance, int niveau, Club club) {
+    public Licence(Personne possesseur, String numero, LocalDate delivrance, Club club) {
         this.possesseur = possesseur;
         this.numero = numero;
         this.delivrance = delivrance;
-        this.niveau = niveau;
         this.club = club;
     }
 
     public Personne getPossesseur() {
-        return possesseur;
+        return this.possesseur;
     }
 
     public String getNumero() {
-        return numero;
+        return this.numero;
     }
 
     public LocalDate getDelivrance() {
-        return delivrance;
-    }
-
-    public int getNiveau() {
-        return niveau;
+        return this.delivrance;
     }
 
     public Club getClub() {
-        return club;
+        return this.club;
     }
 
     /**
@@ -52,8 +42,10 @@ public class Licence {
      * @return vrai si valide à la date d
      **/
     public boolean estValide(LocalDate d) {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        if (d.isAfter(this.getDelivrance()) && d.isBefore(this.getDelivrance().plusYears(1))) {
+            return true;
+        }
+        return false;
     }
 
 }

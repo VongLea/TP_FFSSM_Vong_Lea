@@ -5,19 +5,16 @@ package FFSSM;
 
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Plongee {
 
 	public Site lieu;
-
 	public Moniteur chefDePalanquee;
-
 	public LocalDate date;
-
 	public int profondeur;
-
 	public int duree;
+        public  Set<Licence> listLicence;
 
 	public Plongee(Site lieu, Moniteur chefDePalanquee, LocalDate date, int profondeur, int duree) {
 		this.lieu = lieu;
@@ -25,15 +22,15 @@ public class Plongee {
 		this.date = date;
 		this.profondeur = profondeur;
 		this.duree = duree;
+                this.listLicence = new HashSet<>();
 	}
 
-	public void ajouteParticipant(Plongeur participant) {
-		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+	public void ajouteParticipant(Licence licence) { // doit enregistrer une licence plutôt qu'un plongeur
+            this.listLicence.add(licence);
 	}
 
 	public LocalDate getDate() {
-		return date;
+		return this.date;
 	}
 
 	/**
@@ -43,8 +40,11 @@ public class Plongee {
 	 * @return vrai si la plongée est conforme
 	 */
 	public boolean estConforme() {
-		// TODO: Implémenter cette méthode
-		throw new UnsupportedOperationException("Pas encore implémenté");
+                for(Licence l: this.listLicence){
+                    if(!l.estValide(this.getDate()))
+                        return false;
+                }
+                return true;
 	}
 
 }

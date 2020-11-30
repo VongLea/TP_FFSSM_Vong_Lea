@@ -7,6 +7,7 @@ package FFSSM;
 public class Site
 {
 	public String nom;
+        private String details;
 
 	public Site(String nom, String details) {
 		this.nom = nom;
@@ -14,22 +15,20 @@ public class Site
 	}
 
 	public String getNom() {
-		return nom;
+		return this.nom;
 	}
 
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 	
-		private String details;
-
 	/**
 	 * Get the value of details
 	 *
 	 * @return the value of details
 	 */
 	public String getDetails() {
-		return details;
+		return this.details;
 	}
 
 	/**

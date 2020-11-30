@@ -4,18 +4,15 @@
 package FFSSM;
 
 import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Club {
 
- 
     public Moniteur president;
-
     public String nom;
-
     public String adresse;
-
     public String telephone;
+    public List<Plongee> myPlongees = new LinkedList<>(); 
 
     public Club(Moniteur président, String nom, String telephone) {
         this.president = président;
@@ -30,8 +27,13 @@ public class Club {
      * @return l'ensemble des plongées non conformes
      */
     public Set<Plongee> plongeesNonConformes() {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        Set<Plongee> listPlongeeNonConformes = new HashSet<>();
+        for (Plongee p : myPlongees) {
+            if (!p.estConforme()) {
+                listPlongeeNonConformes.add(p);
+            }
+        }
+        return listPlongeeNonConformes;
     }
 
     /**
@@ -39,13 +41,12 @@ public class Club {
      * @param p la nouvelle plongée
      */
     public void organisePlongee(Plongee p) {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        this.myPlongees.add(p);
     }
     
     
     public Moniteur getPresident() {
-        return president;
+        return this.president;
     }
 
     public void setPresident(Moniteur président) {
@@ -53,7 +54,7 @@ public class Club {
     }
 
     public String getNom() {
-        return nom;
+        return this.nom;
     }
 
     public void setNom(String nom) {
@@ -61,7 +62,7 @@ public class Club {
     }
 
     public String getAdresse() {
-        return adresse;
+        return this.adresse;
     }
 
     public void setAdresse(String adresse) {
@@ -69,7 +70,7 @@ public class Club {
     }
 
     public String getTelephone() {
-        return telephone;
+        return this.telephone;
     }
 
     public void setTelephone(String telephone) {

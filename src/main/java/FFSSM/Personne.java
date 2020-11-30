@@ -9,15 +9,10 @@ import java.time.LocalDate;
 public class Personne
 {
 	public String numeroINSEE;
-	
 	public String nom;
-	
 	public String prenom;
-	
 	public String adresse;
-	
 	public String telephone;
-	
 	public LocalDate naissance;
 
     public Personne(String numeroINSEE, String nom, String prenom, String adresse, String telephone, LocalDate naissance) {
@@ -30,7 +25,7 @@ public class Personne
     }
 
     public String getNumeroINSEE() {
-        return numeroINSEE;
+        return this.numeroINSEE;
     }
 
     public void setNumeroINSEE(String numeroINSEE) {
@@ -41,7 +36,7 @@ public class Personne
     }
 
     public String getNom() {
-        return nom;
+        return this.nom;
     }
 
     public void setNom(String nom) {
@@ -49,7 +44,7 @@ public class Personne
     }
 
     public String getPrenom() {
-        return prenom;
+        return this.prenom;
     }
 
     public void setPrenom(String prenom) {
@@ -57,7 +52,7 @@ public class Personne
     }
 
     public String getAdresse() {
-        return adresse;
+        return this.adresse;
     }
 
     public void setAdresse(String adresse) {
@@ -65,7 +60,7 @@ public class Personne
     }
 
     public String getTelephone() {
-        return telephone;
+        return this.telephone;
     }
 
     public void setTelephone(String telephone) {
@@ -73,7 +68,7 @@ public class Personne
     }
 
     public LocalDate getNaissance() {
-        return naissance;
+        return this.naissance;
     }
 
     public void setNaissance(LocalDate naissance) {
